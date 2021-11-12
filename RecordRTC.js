@@ -3060,12 +3060,6 @@ function StereoAudioRecorder(mediaStream, config) {
         self.leftchannel = leftchannel;
         self.rightchannel = rightchannel;
         self.recordingLength = recordingLength;
-
-        intervalsBasedBuffers = {
-            left: [],
-            right: [],
-            recordingLength: 0
-        };
     };
 
     function resetVariables() {
@@ -3157,15 +3151,15 @@ function StereoAudioRecorder(mediaStream, config) {
 
         // we clone the samples
         var chLeft = new Float32Array(left);
-        leftchannel.push(chLeft);
+        // leftchannel.push(chLeft);
 
         if (numberOfAudioChannels === 2) {
             var right = e.inputBuffer.getChannelData(1);
             var chRight = new Float32Array(right);
-            rightchannel.push(chRight);
+            // rightchannel.push(chRight);
         }
 
-        recordingLength += bufferSize;
+        // recordingLength += bufferSize;
 
         // export raw PCM
         self.recordingLength = recordingLength;
